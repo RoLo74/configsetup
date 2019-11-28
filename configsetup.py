@@ -122,9 +122,10 @@ def main(args):
         if verbose:
             pprint('Option to add or update: {}\nValue: '.format(opt, val))
         config[section][opt] = val
-        config[section].comments.update({
-            opt: comments,
-        })
+        if comments:
+            config[section].comments.update({
+                opt: comments,
+            })
 
     config.write()
 
